@@ -124,7 +124,7 @@ if __name__ == '__main__':
 
     name_char_tree = build_tree(array)
 
-    rand_searchkey = rand.choice([rand.choice(array), rand.choice(str.ascii_letters)])
+    rand_searchkey = rand.choice([rand.choice(array), rand.choice(str.ascii_letters)]) # Generates a random searchkey from either the array or a list of char
 
     print("In order traversal : ", name_char_tree.in_order_traversal())
     print("Pre order traversal : ", name_char_tree.pre_order_traversal())
@@ -134,3 +134,6 @@ if __name__ == '__main__':
     print(name_char_tree.find_min())
 
     print(f"Search for : {rand_searchkey} --- ", name_char_tree.search(rand_searchkey))
+
+    name_char_tree.delete("J")
+    print("After deleting 'J' in the sequence : ", name_char_tree.in_order_traversal())
