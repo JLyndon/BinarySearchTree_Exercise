@@ -1,3 +1,5 @@
+import random as rand
+
 class BinarySearchTreeNode:
     def __init__(self, data):
         self.data = data
@@ -100,12 +102,15 @@ if __name__ == '__main__':
 
     numbers_tree = build_tree(array)
 
-    print(numbers_tree.calculate_sum())
-    # print(numbers_tree.in_order_traversal())
-    # print(numbers_tree.pre_order_traversal())
-    # print(numbers_tree.post_order_traversal())
-    # print(numbers_tree.search(97))
+    rand_searchkey = rand.choice([rand.choice(array), rand.randint(1, 100)])
 
-    # print(numbers_tree.find_max())
-    # print(numbers_tree.find_min())
+    print(numbers_tree.calculate_sum())
+    print("In order traversal : ", numbers_tree.in_order_traversal())
+    print("Pre order traversal : ", numbers_tree.pre_order_traversal())
+    print("Post order traversal : ", numbers_tree.post_order_traversal())
+
+    print(f"Search for : {rand_searchkey} --- ", numbers_tree.search(rand_searchkey))
+
+    print(numbers_tree.find_max())
+    print(numbers_tree.find_min())
 
