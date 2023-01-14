@@ -81,6 +81,11 @@ class BinarySearchTreeNode:
             return self.data
         return self.right.find_max()
 
+    def calculate_sum(self):
+        left_sum = self.left.calculate_sum() if self.left else 0
+        right_sum = self.right.calculate_sum() if self.right else 0
+        return self.data + left_sum + right_sum
+
     
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
@@ -95,9 +100,10 @@ if __name__ == '__main__':
 
     numbers_tree = build_tree(array)
 
-    print(numbers_tree.in_order_traversal())
-    print(numbers_tree.pre_order_traversal())
-    print(numbers_tree.post_order_traversal())
+    print(numbers_tree.calculate_sum())
+    # print(numbers_tree.in_order_traversal())
+    # print(numbers_tree.pre_order_traversal())
+    # print(numbers_tree.post_order_traversal())
     # print(numbers_tree.search(97))
 
     # print(numbers_tree.find_max())
