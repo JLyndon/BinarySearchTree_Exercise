@@ -1,5 +1,3 @@
-import random as rand
-
 class BinarySearchTreeNode:
     def __init__(self, data):
         self.data = data
@@ -37,6 +35,22 @@ class BinarySearchTreeNode:
 
         return elements
     
+    def search(self, val):
+        if self.data == val:
+            return "Found"
+
+        if val < self.data:
+            if self.left: # check val in left subtree
+                return self.left.search(val)
+            else:
+                return "Not Found"
+
+        if val > self.data:
+            if self.right: # check val in right subtree
+                return self.right.search(val)
+            else:
+                return "Not Found"
+    
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
 
@@ -46,10 +60,9 @@ def build_tree(elements):
     return root
 
 if __name__ == '__main__':
-    array = []
-    while len(array) < 10:
-        array.append(rand.randint(1, 100))
+    array = [51, 14, 28, 30, 97, 71, 88, 49]
 
     numbers_tree = build_tree(array)
 
     print(numbers_tree.in_order_traversal())
+    print(numbers_tree.search(97))
