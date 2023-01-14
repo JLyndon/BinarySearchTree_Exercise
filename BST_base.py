@@ -46,7 +46,9 @@ def build_tree(elements):
     return root
 
 if __name__ == '__main__':
-    array = [17, 4, 1, 20, 9, 23, 18, 34]
+    array = []
+    while len(array) < 10:
+        array.append(rand.randint(1, 100))
 
     numbers_tree = build_tree(array)
 
