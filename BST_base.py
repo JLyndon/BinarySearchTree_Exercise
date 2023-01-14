@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     numbers_tree = build_tree(array)
 
-    rand_searchkey = rand.choice([rand.choice(array), rand.randint(1, 100)])
+    rand_searchkey = rand.choice([rand.choice(array), rand.randint(1, 100)]) # Additional
 
     print(numbers_tree.calculate_sum())
     print("In order traversal : ", numbers_tree.in_order_traversal())
