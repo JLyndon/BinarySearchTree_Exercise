@@ -34,6 +34,26 @@ class BinarySearchTreeNode:
             elements += self.right.in_order_traversal()
 
         return elements
+
+    def post_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.post_order_traversal()
+        if self.right:
+            elements += self.right.post_order_traversal()
+
+        elements.append(self.data)
+
+        return elements
+
+    def pre_order_traversal(self):
+        elements = [self.data]
+        if self.left:
+            elements += self.left.pre_order_traversal()
+        if self.right:
+            elements += self.right.pre_order_traversal()
+
+        return elements
     
     def search(self, val):
         if self.data == val:
@@ -60,6 +80,7 @@ class BinarySearchTreeNode:
         if self.right is None:
             return self.data
         return self.right.find_max()
+
     
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])
@@ -74,8 +95,11 @@ if __name__ == '__main__':
 
     numbers_tree = build_tree(array)
 
-    # print(numbers_tree.in_order_traversal())
+    print(numbers_tree.in_order_traversal())
+    print(numbers_tree.pre_order_traversal())
+    print(numbers_tree.post_order_traversal())
     # print(numbers_tree.search(97))
 
-    print(numbers_tree.find_max())
-    print(numbers_tree.find_min())
+    # print(numbers_tree.find_max())
+    # print(numbers_tree.find_min())
+
